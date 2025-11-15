@@ -1,6 +1,7 @@
 # EXP-3-B-Automatic-street-light-systems-using-LDR-sensor
 
 ## Aim: 
+To measure the LDR Sensor using Photoresistor with Arduino UNO Board/ESP-32 using Tinker CAD.
 
 ## Hardware / Software Tools required:
 
@@ -12,6 +13,9 @@
   
 ## Circuit Diagram:
 
+<img width="1285" height="710" alt="image" src="https://github.com/user-attachments/assets/7da15944-9d76-4e08-b5df-c94b42fe69d7" />
+
+
 
 ## Theory :
 
@@ -21,12 +25,13 @@ The board is programmable using the Arduino IDE (Integrated Development Environm
 ## Procedure:
 
 ### Step 1: 
-	Set Up the Tinkercad Environment
+.   Set Up the Tinkercad Environment
 •	Log in to Tinkercad: Open Tinkercad in your web browser and log in to your account.
 •	Create a New Circuit: In the Tinkercad dashboard, click on "Circuits" and then select "Create New Circuit."
+
 ### Step 2: 
 
-	Add Components to the Circuit
+.   Add Components to the Circuit
 •	Arduino Uno: Drag an Arduino Uno board from the components panel onto the workspace.
 •	LDR Sensor: Search for the Photoresistor in the components panel and drag it into the workspace.
 •	Breadboard: Drag a small breadboard to the workspace to help with wiring connections.
@@ -34,7 +39,7 @@ The board is programmable using the Arduino IDE (Integrated Development Environm
 •	Wires: Use wires to connect the components.
 
 ### Step 3: 
-	Connect the LDR Sensor to the Arduino
+.   Connect the LDR Sensor to the Arduino
 •	LDR Sensor Pins: The LDR has two terminals (pins).
 •	One LDR Pin to 5V: Connect one terminal of the LDR to the Arduino 5V pin.
 •	Other LDR Pin to Analog Input and Resistor:
@@ -66,10 +71,38 @@ o	The middle point (between LDR and resistor) connects to the Arduino analog inp
 
 ## Code:
 
-
+    // C++ code
+	//
+	int sensorValue = 0;
+	
+	void setup()
+	{
+	  pinMode(A0, INPUT);
+	  Serial.begin(9600);
+	
+	  pinMode(9, OUTPUT);
+	}
+	
+	void loop()
+	{
+	  // read the value from the sensor
+	  sensorValue = analogRead(A0);
+	  // print the sensor reading so you know its range
+	  Serial.println(sensorValue);
+	  // map the sensor reading to a range for the LED
+	  analogWrite(9, map(sensorValue, 0, 1023, 255, 0));
+	  delay(100); // Wait for 100 millisecond(s)
+	}
 
 ## Output:
+
+
+
+https://github.com/user-attachments/assets/271c79fb-1e71-4c51-8ca7-543d9b3d103d
+
+
  
 
 
 ## Result:
+Thus the Automatic street light systems using LDR sensor stimulated by Tinkercad
